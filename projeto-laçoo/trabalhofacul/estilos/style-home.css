@@ -1,0 +1,406 @@
+/* --- RESET BÁSICO E CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333; /* Cor de texto padrão */
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Links herdam a cor do elemento pai */
+}
+
+/* --- CABEÇALHO --- */
+.top-bar {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #050505;
+    color: #fffafa;
+    border-radius: 30px;
+}
+
+.top-bar-icons-left, .top-bar-icons-right {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os ícones */
+    filter: invert(1);
+}
+
+.main-header {
+    text-align: center;
+}
+
+.main-header img {
+    max-width: 100px; /* Ajuste o tamanho do logo se necessário */
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 15px 0px;
+    border-radius: 30px;
+    background-color: #FFDDDE; /* Tom de rosa bem claro do fundo */
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    gap: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* --- CORPO PRINCIPAL --- */
+main {
+    padding: 0 20px; /* Espaçamento nas laterais */
+    max-width: 1200px; /* Largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza o conteúdo na página */
+}
+
+.banner {
+    margin: 30px 0;
+    border-radius: 15px;
+    overflow: hidden; /* Garante que a imagem respeite as bordas arredondadas */
+    height: 400px;
+    width: 100%;
+    background-image: url("../imagens/banner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* --- SEÇÃO CONCEITO - EFEITO DE MANCHA FLUTUANTE --- */
+
+.conceito-box {
+    background-color: transparent;
+    position: relative; 
+    padding: 60px 20px;
+    text-align: center;
+    margin: 50px 0;
+    
+    /* 3. Garante que o conteúdo do texto fique na frente. */
+    z-index: 1; 
+}
+
+.conceito-box::before {
+    content: ''; /* Obrigatório para pseudo-elementos */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+
+    width: 90%;
+    height: 150px; 
+    padding: 30px;
+ 
+    background: radial-gradient(
+        ellipse at center, 
+        rgba(182, 125, 125, 0.9) 0%,
+        rgba(182, 103, 103, 0.7) 50%, 
+        transparent 70%
+    );
+    filter: blur(40px);
+    z-index: -1;
+}
+
+.conceito-box h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.conceito-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #444;
+}
+
+
+/* --- SEÇÃO PRODUTOS --- */
+.produtos-colecao {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-colecao {
+    margin-bottom: 40px;
+}
+
+.titulo-colecao span {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #888;
+}
+
+.titulo-colecao h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de tamanho igual */
+    gap: 30px; /* Espaço entre os produtos */
+    margin-bottom: 40px;
+}
+
+/* --- SEÇÃO PRODUTOS --- */
+
+.product-card {
+    background-color: #fff; /* Ou a cor de fundo da sua página */
+    border-radius: 15px;
+    padding: 15px; /* Espaçamento interno que "empurra" a imagem para dentro */
+    display: flex;
+    flex-direction: column; /* Organiza os itens em uma coluna (imagem, texto, botão) */
+    justify-content: space-between; /* Distribui o espaço verticalmente */
+    text-align: center;
+    /* Opcional: Adiciona uma sombra sutil para destacar o card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* IMAGEM DO PRODUTO */
+.product-card img {
+    /* A imagem agora ocupa 100% do espaço interno do card (que já tem padding) */
+    width: 100%; 
+    
+    /* Manter a proporção e o corte para consistência visual */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    
+    /* Manter as bordas arredondadas na imagem */
+    border-radius: 10px; /* Um pouco menor que o card para um efeito suave */
+    margin-bottom: 15px;
+}
+
+/* --- Estilos para o texto e botões--- */
+
+.product-card h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.product-card .preco {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* Garante que esta seção não encolha */
+    margin-top: auto; 
+}
+
+.btn-add-cart, .btn-add-carrinho {
+    background-color: #000;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    flex-grow: 1;
+    max-width: 220px;
+}
+
+.btn-add-cart:hover{
+    color: rgb(236, 218, 232);
+}
+
+.btn-wishlist {
+    
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Impede que o botão encolha */
+    
+}
+
+
+.descricao-colecao {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* --- SEÇÃO SOBRE NÓS --- */
+.sobre-nos {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sobre-nos h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.sobre-nos-caixa {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: #FEF7F7;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: left;
+}
+
+.sobre-nos-caixa img {
+    max-width: 180px;
+}
+
+.sobre-nos-caixa p {
+    line-height: 1.6;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    border-top: 1px solid #eee;
+    padding: 50px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*Transforma o contêiner principal em um layout flexível */
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Empurra os blocos para as extremidades */
+    align-items: flex-start;/* Alinha os blocos no topo */
+    gap: 40px;              /* Espaço entre os blocos */
+    margin-bottom: 50px;
+    flex-wrap: wrap;        /* Permite quebrar linha em telas pequenas */
+}
+
+/*Define o tamanho do bloco da esquerda */
+.footer-left-block {
+    flex: 1; /* Ocupa 1 "fração" do espaço */
+    min-width: 300px; /* Largura mínima */
+}
+
+/* Define o layout do bloco da direita (colunas de links) */
+.footer-links {
+    flex: 2; /* Ocupa 2 "frações" do espaço (será maior) */
+    display: flex; /* Flexbox aninhado para alinhar as colunas */
+    justify-content: space-around; /* Distribui as colunas com espaço */
+    gap: 20px;
+}
+
+.footer-left-block button{
+    filter: invert(1);
+}
+.footer-links a:hover{
+    color: #050505;
+}
+
+.footer-links span:hover{
+    color: #000;
+}
+
+/* --- Estilos para os elementos internos --- */
+
+.footer-form label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.email-input {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.email-input input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 10px 0;
+    background: none;
+}
+
+.email-input button {
+    background: #000;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-input button img {
+    filter: invert(1);
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-links a {
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+}
+
+.link-column h4 {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.link-column a, .link-column span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
